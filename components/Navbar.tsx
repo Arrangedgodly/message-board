@@ -6,6 +6,8 @@ import {
   MagnifyingGlassIcon,
   SunIcon,
   MoonIcon,
+  UserIcon,
+  CodeBracketSquareIcon
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
@@ -43,6 +45,9 @@ export default function Navbar() {
             <MoonIcon className="w-6 h-6" />
           )}
         </button>
+        <button className="btn btn-ghost btn-sm rounded-btn">
+          <UserIcon className="w-6 h-6" />
+        </button>
       </div>
       <div className="flex-1 justify-center">
         <Link href="/" legacyBehavior>
@@ -52,6 +57,9 @@ export default function Navbar() {
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
           <MagnifyingGlassIcon className="w-6 h-6" />
+        </button>
+        <button className="btn btn-square btn-ghost">
+          <CodeBracketSquareIcon className="w-6 h-6" />
         </button>
       </div>
     </div>
