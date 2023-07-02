@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   MagnifyingGlassIcon,
   SunIcon,
@@ -8,13 +9,15 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<string>("");
 
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       setTheme("light");
+      localStorage.setItem("theme", "light");
     }
   };
 
@@ -22,6 +25,10 @@ export default function Navbar() {
     const body = document.body;
     body.setAttribute("data-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme") || "light");
+  }, [])
 
   return (
     <div className="navbar bg-base-100">
@@ -38,7 +45,9 @@ export default function Navbar() {
         </button>
       </div>
       <div className="flex-1 justify-center">
-        <a className="btn btn-ghost normal-case text-3xl">Positivity Board</a>
+        <Link href="/" legacyBehavior>
+          <a className="btn btn-ghost normal-case text-3xl">Positivity Board</a>
+        </Link>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
