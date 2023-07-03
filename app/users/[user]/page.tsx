@@ -1,6 +1,12 @@
 import Navbar from "@/components/Navbar"
 
-export default function Page({ params }) {
+interface Params {
+  params: {
+    user: string
+  }
+}
+
+export default function Page({ params }: Params) {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Navbar />
