@@ -36,7 +36,7 @@ export default function Navbar() {
     <div className="navbar bg-base-100">
       <div className="flex-none">
         <button
-          className="btn btn-ghost btn-sm rounded-btn"
+          className="btn btn-ghost btn-square rounded-btn"
           onClick={toggleTheme}
         >
           {theme === "light" ? (
@@ -46,12 +46,12 @@ export default function Navbar() {
           )}
         </button>
         <Link href="/login">
-          <button className="btn btn-ghost btn-sm rounded-btn">
+          <button className="btn btn-ghost btn-square rounded-btn">
             <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
           </button>
         </Link>
       </div>
-      <div className="flex-1 justify-center">
+      <div className="flex-1 items-center justify-center">
         <Link href="/" legacyBehavior>
           <a className="btn btn-ghost normal-case md:text-3xl text-xl">
             Positivity Board
@@ -60,7 +60,10 @@ export default function Navbar() {
       </div>
       <div className="flex-none">
         <div className="flex flex-row items-center relative">
-          <kbd className="kbd kbd-sm">ctrl</kbd>+<kbd className="kbd kbd-sm">k</kbd>
+          <div className="md:block hidden absolute right-[100px]">
+            <kbd className="kbd kbd-sm">ctrl</kbd>+
+            <kbd className="kbd kbd-sm">k</kbd>
+          </div>
           <button className="btn btn-square btn-ghost">
             <MagnifyingGlassIcon className="md:w-6 md:h-6 w-4 h-4" />
           </button>
