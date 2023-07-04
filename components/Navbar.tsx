@@ -45,13 +45,17 @@ export default function Navbar() {
             <MoonIcon className="md:w-6 md:h-6 w-4 h-4" />
           )}
         </button>
-        <button className="btn btn-ghost btn-sm rounded-btn">
-          <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
-        </button>
+        <Link href="/login">
+          <button className="btn btn-ghost btn-sm rounded-btn">
+            <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
+          </button>
+        </Link>
       </div>
       <div className="flex-1 justify-center">
         <Link href="/" legacyBehavior>
-          <a className="btn btn-ghost normal-case md:text-3xl text-xl">Positivity Board</a>
+          <a className="btn btn-ghost normal-case md:text-3xl text-xl">
+            Positivity Board
+          </a>
         </Link>
       </div>
       <div className="flex-none">
