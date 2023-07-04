@@ -7,7 +7,7 @@ import {
   SunIcon,
   MoonIcon,
   UserIcon,
-  CodeBracketSquareIcon
+  CodeBracketSquareIcon,
 } from "@heroicons/react/24/outline";
 
 export default function Navbar() {
@@ -30,7 +30,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme") || "light");
-  }, [])
+  }, []);
 
   return (
     <div className="navbar bg-base-100">
@@ -40,26 +40,30 @@ export default function Navbar() {
           onClick={toggleTheme}
         >
           {theme === "light" ? (
-            <SunIcon className="w-6 h-6" />
+            <SunIcon className="md:w-6 md:h-6 w-4 h-4" />
           ) : (
-            <MoonIcon className="w-6 h-6" />
+            <MoonIcon className="md:w-6 md:h-6 w-4 h-4" />
           )}
         </button>
         <button className="btn btn-ghost btn-sm rounded-btn">
-          <UserIcon className="w-6 h-6" />
+          <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
         </button>
       </div>
       <div className="flex-1 justify-center">
         <Link href="/" legacyBehavior>
-          <a className="btn btn-ghost normal-case text-3xl">Positivity Board</a>
+          <a className="btn btn-ghost normal-case md:text-3xl text-xl">Positivity Board</a>
         </Link>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
-          <MagnifyingGlassIcon className="w-6 h-6" />
+          <MagnifyingGlassIcon className="md:w-6 md:h-6 w-4 h-4" />
         </button>
-        <a className="btn btn-square btn-ghost" href='https://github.com/Arrangedgodly/message-board' target='_blank'>
-          <CodeBracketSquareIcon className="w-6 h-6" />
+        <a
+          className="btn btn-square btn-ghost"
+          href="https://github.com/Arrangedgodly/message-board"
+          target="_blank"
+        >
+          <CodeBracketSquareIcon className="md:w-6 md:h-6 w-4 h-4" />
         </a>
       </div>
     </div>

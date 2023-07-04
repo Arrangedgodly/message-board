@@ -3,5 +3,7 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <section>{children}</section>
+  return <section className="flex flex-col grow items-center">
+    {children}
+    </section>
 }
