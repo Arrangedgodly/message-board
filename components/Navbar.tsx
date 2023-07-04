@@ -58,9 +58,9 @@ export default function Navbar() {
         <button className="btn btn-square btn-ghost">
           <MagnifyingGlassIcon className="w-6 h-6" />
         </button>
-        <button className="btn btn-square btn-ghost">
+        <a className="btn btn-square btn-ghost" href='https://github.com/Arrangedgodly/message-board' target='_blank'>
           <CodeBracketSquareIcon className="w-6 h-6" />
-        </button>
+        </a>
       </div>
     </div>
   );
