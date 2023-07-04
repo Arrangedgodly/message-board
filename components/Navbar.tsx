@@ -59,16 +59,19 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
-          <MagnifyingGlassIcon className="md:w-6 md:h-6 w-4 h-4" />
-        </button>
-        <a
-          className="btn btn-square btn-ghost"
-          href="https://github.com/Arrangedgodly/message-board"
-          target="_blank"
-        >
-          <CodeBracketSquareIcon className="md:w-6 md:h-6 w-4 h-4" />
-        </a>
+        <div className="flex flex-row items-center relative">
+          <kbd className="kbd kbd-sm">ctrl</kbd>+<kbd className="kbd kbd-sm">k</kbd>
+          <button className="btn btn-square btn-ghost">
+            <MagnifyingGlassIcon className="md:w-6 md:h-6 w-4 h-4" />
+          </button>
+          <a
+            className="btn btn-square btn-ghost"
+            href="https://github.com/Arrangedgodly/message-board"
+            target="_blank"
+          >
+            <CodeBracketSquareIcon className="md:w-6 md:h-6 w-4 h-4" />
+          </a>
+        </div>
       </div>
     </div>
   );
