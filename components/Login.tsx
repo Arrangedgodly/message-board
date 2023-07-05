@@ -28,7 +28,7 @@ export default function Login({ name, text, alt, src, linkText }: LoginProps) {
         </div>
         <p className="text-md m-2">{alt}</p>
         <p className='text-md text-accent italic m-2'>
-          <Link href={src}>
+          <Link href={src} prefetch={true}>
             {linkText}
           </Link>
         </p>

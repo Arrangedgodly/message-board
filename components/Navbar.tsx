@@ -45,7 +45,7 @@ export default function Navbar() {
             <MoonIcon className="md:w-6 md:h-6 w-4 h-4" />
           )}
         </button>
-        <Link href="/login">
+        <Link href="/login" prefetch={true}>
           <button className="btn btn-ghost btn-square rounded-btn">
             <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
           </button>
