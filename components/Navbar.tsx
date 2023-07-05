@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/lib/firebase";
 import Link from "next/link";
 import {
   MagnifyingGlassIcon,
@@ -12,6 +14,7 @@ import {
 
 export default function Navbar() {
   const [theme, setTheme] = useState<string>("");
+  const [user] = useAuthState(auth);
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -45,11 +48,27 @@ export default function Navbar() {
             <MoonIcon className="md:w-6 md:h-6 w-4 h-4" />
           )}
         </button>
-        <Link href="/login" prefetch={true}>
-          <button className="btn btn-ghost btn-square rounded-btn">
-            <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
-          </button>
-        </Link>
+        {user ? (
+          <Link href={`/users/${user.uid}`} prefetch={true}>
+            <button className="btn btn-ghost btn-square rounded-btn">
+              <div className="avatar md:w-6 md:h-6 w-4 h-4">
+                <div className="rounded-full">
+                  {user.photoURL ? (
+                    <img className="w-full h-full" src={user.photoURL} />
+                  ) : (
+                    <span className='text-sm'>{user.displayName}</span>
+                  )}
+                </div>
+              </div>
+            </button>
+          </Link>
+        ) : (
+          <Link href="/login" prefetch={true}>
+            <button className="btn btn-ghost btn-square rounded-btn">
+              <UserIcon className="md:w-6 md:h-6 w-4 h-4" />
+            </button>
+          </Link>
+        )}
       </div>
       <div className="flex-1 items-center justify-center">
         <Link href="/" legacyBehavior>

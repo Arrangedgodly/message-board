@@ -1,5 +1,8 @@
+'use client'
+
 import { FcGoogle } from 'react-icons/fc'
 import Link from 'next/link'
+import { signInWithGoogle } from '@/lib/firebase'
 
 interface LoginProps {
   name: string,
@@ -22,7 +25,7 @@ export default function Login({ name, text, alt, src, linkText }: LoginProps) {
         </div>
         <p className="text-lg m-2">Or authenticate with:</p>
         <div className="btn-group">
-          <button className="btn btn-neutral">
+          <button className="btn btn-neutral" onClick={signInWithGoogle}>
             <FcGoogle className="w-6 h-6" />
           </button>
         </div>
