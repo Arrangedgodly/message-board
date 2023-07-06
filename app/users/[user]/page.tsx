@@ -33,14 +33,16 @@ export default function Page({ params }: Params) {
   }, [params.user]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       {userData !== null && (
         <>
-          <h1>{userData.name}</h1>
+          <h1 className="text-3xl m-5">{userData.name}</h1>
+          <img src={userData.photoURL} alt={userData.name} className="rounded-full w-32 h-32" />
+          <p className="text-lg m-5">{userData.email}</p>
         </>
       )}
       {currentUser && (
-        <button onClick={signOutUser}>Sign Out</button>
+        <button onClick={signOutUser} className="btn btn-ghost btn-lg">Sign Out</button>
       )}
     </div>
   );
