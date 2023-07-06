@@ -9,6 +9,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { redirect } from "next/navigation";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBjo6xaSdpIjZytCI94EzmK7SApagb7JnY",
@@ -28,17 +29,27 @@ export const googleAuthProvider = new GoogleAuthProvider();
 
 export const signInWithGoogle = async () => {
   await signInWithPopup(auth, googleAuthProvider);
+  if (auth.currentUser) {
+    redirect("/");
+  }
 };
 
 export const signUpWithEmail = async (email: string, password: string) => {
   await createUserWithEmailAndPassword(auth, email, password);
+  if (auth.currentUser) {
+    redirect("/");
+  }
 };
 
 export const signInWithEmail = async (email: string, password: string) => {
   await signInWithEmailAndPassword(auth, email, password);
+  if (auth.currentUser) {
+    redirect("/");
+  }
 };
 
 export const signOutUser = async () => {
   await signOut(auth);
+  redirect("/login");
 }
 
